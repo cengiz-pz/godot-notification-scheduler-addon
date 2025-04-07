@@ -5,7 +5,7 @@
 @tool
 extends EditorPlugin
 
-const PLUGIN_NODE_TYPE_NAME = "NotificationScheduler"
+const PLUGIN_NODE_TYPE_NAME = "@pluginNodeName@"
 const PLUGIN_PARENT_NODE_TYPE = "Node"
 const PLUGIN_NAME: String = "@pluginName@"
 const PLUGIN_VERSION: String = "@pluginVersion@"
@@ -18,7 +18,7 @@ var export_plugin: AndroidExportPlugin
 
 
 func _enter_tree() -> void:
-	add_custom_type(PLUGIN_NODE_TYPE_NAME, PLUGIN_PARENT_NODE_TYPE, preload("NotificationScheduler.gd"), preload("icon.png"))
+	add_custom_type(PLUGIN_NODE_TYPE_NAME, PLUGIN_PARENT_NODE_TYPE, preload("%s.gd" % PLUGIN_NODE_TYPE_NAME), preload("icon.png"))
 	export_plugin = AndroidExportPlugin.new()
 	add_export_plugin(export_plugin)
 

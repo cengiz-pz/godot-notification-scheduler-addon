@@ -11,12 +11,14 @@ signal notification_dismissed(notification_id: int)
 signal permission_granted(permission_name: String)
 signal permission_denied(permission_name: String)
 
+const PLUGIN_SINGLETON_NAME: String = "@pluginName@"
+const PLUGIN_TARGET_OS: String = "@targetOs@"
+
 const NOTIFICATION_OPENED_SIGNAL_NAME = "notification_opened"
 const NOTIFICATION_DISMISSED_SIGNAL_NAME = "notification_dismissed"
 const PERMISSION_GRANTED_SIGNAL_NAME = "permission_granted"
 const PERMISSION_DENIED_SIGNAL_NAME = "permission_denied"
 
-const PLUGIN_SINGLETON_NAME: String = "@pluginName@"
 const DEFAULT_NOTIFICATION_ID: int = -1
 
 var _plugin_singleton: Object
@@ -27,8 +29,10 @@ func _ready() -> void:
 		if Engine.has_singleton(PLUGIN_SINGLETON_NAME):
 			_plugin_singleton = Engine.get_singleton(PLUGIN_SINGLETON_NAME)
 			_connect_signals()
-		else:
+		elif OS.has_feature(PLUGIN_TARGET_OS):
 			printerr("%s singleton not found!" % PLUGIN_SINGLETON_NAME)
+		else:
+			printerr("%s plugin should be run on %s!" % [PLUGIN_SINGLETON_NAME, PLUGIN_TARGET_OS])
 
 
 func _connect_signals() -> void:
