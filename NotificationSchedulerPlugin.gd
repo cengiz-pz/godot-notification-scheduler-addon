@@ -14,19 +14,24 @@ const NOTIFICATION_RECEIVER_CLASS_PATH: String = "@notificationReceiverClass@"
 const CANCEL_RECEIVER_CLASS_PATH: String = "@cancelReceiverClass@"
 const PLUGIN_DEPENDENCIES: Array = [ @pluginDependencies@ ]
 
-var export_plugin: AndroidExportPlugin
+var android_export_plugin: AndroidExportPlugin
+var ios_export_plugin: IosExportPlugin
 
 
 func _enter_tree() -> void:
 	add_custom_type(PLUGIN_NODE_TYPE_NAME, PLUGIN_PARENT_NODE_TYPE, preload("%s.gd" % PLUGIN_NODE_TYPE_NAME), preload("icon.png"))
-	export_plugin = AndroidExportPlugin.new()
-	add_export_plugin(export_plugin)
+	android_export_plugin = AndroidExportPlugin.new()
+	add_export_plugin(android_export_plugin)
+	ios_export_plugin = IosExportPlugin.new()
+	add_export_plugin(ios_export_plugin)
 
 
 func _exit_tree() -> void:
 	remove_custom_type(PLUGIN_NODE_TYPE_NAME)
-	remove_export_plugin(export_plugin)
-	export_plugin = null
+	remove_export_plugin(android_export_plugin)
+	android_export_plugin = null
+	remove_export_plugin(ios_export_plugin)
+	ios_export_plugin = null
 
 
 class AndroidExportPlugin extends EditorExportPlugin:
@@ -83,3 +88,17 @@ class AndroidExportPlugin extends EditorExportPlugin:
 			""" % CANCEL_RECEIVER_CLASS_PATH
 
 		return __contents
+
+
+class IosExportPlugin extends EditorExportPlugin:
+	var _plugin_name = PLUGIN_NAME
+
+
+	func _supports_platform(platform: EditorExportPlatform) -> bool:
+		if platform is EditorExportPlatformIOS:
+			return true
+		return false
+
+
+	func _get_name() -> String:
+		return _plugin_name
