@@ -3,8 +3,7 @@
 #
 
 @tool
-class_name NotificationScheduler
-extends Node
+class_name NotificationScheduler extends Node
 
 signal notification_opened(notification_id: int)
 signal notification_dismissed(notification_id: int)
@@ -32,7 +31,7 @@ func _ready() -> void:
 		elif OS.has_feature(PLUGIN_TARGET_OS):
 			printerr("%s singleton not found!" % PLUGIN_SINGLETON_NAME)
 		else:
-			printerr("%s plugin should be run on %s!" % [PLUGIN_SINGLETON_NAME, PLUGIN_TARGET_OS])
+			printerr("%s should be run on %s!" % [PLUGIN_SINGLETON_NAME, PLUGIN_TARGET_OS])
 
 
 func _connect_signals() -> void:
