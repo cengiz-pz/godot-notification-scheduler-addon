@@ -63,9 +63,9 @@ func cancel(a_notification_id: int) -> void:
 		printerr("%s singleton not initialized!" % PLUGIN_SINGLETON_NAME)
 
 
-func set_badge_number(a_number: int) -> void:
+func set_badge_count(a_count: int) -> void:
 	if _plugin_singleton:
-		_plugin_singleton.set_badge_number(a_number)
+		_plugin_singleton.set_badge_count(a_count)
 	else:
 		printerr("%s singleton not initialized!" % PLUGIN_SINGLETON_NAME)
 

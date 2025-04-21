@@ -2,8 +2,7 @@
 # © 2024-present https://github.com/cengiz-pz
 #
 
-class_name NotificationChannel
-extends RefCounted
+class_name NotificationChannel extends RefCounted
 
 enum Importance {
 	NONE = 0,
