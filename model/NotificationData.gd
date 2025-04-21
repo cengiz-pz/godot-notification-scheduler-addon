@@ -2,8 +2,7 @@
 # © 2024-present https://github.com/cengiz-pz
 #
 
-class_name NotificationData
-extends RefCounted
+class_name NotificationData extends RefCounted
 
 const DATA_KEY_ID = "notification_id"
 const DATA_KEY_CHANNEL_ID = "channel_id"
@@ -13,6 +12,7 @@ const DATA_KEY_SMALL_ICON_NAME = "small_icon_name"
 const DATA_KEY_DELAY = "delay"
 const DATA_KEY_DEEPLINK = "deeplink"
 const DATA_KEY_INTERVAL = "interval"
+const DATA_KEY_BADGE_COUNT= "badge_count"
 const OPTION_KEY_RESTART_APP = "restart_app"
 
 var _data: Dictionary
@@ -59,6 +59,11 @@ func set_deeplink(a_deeplink: String) -> NotificationData:
 
 func set_interval(a_interval: int) -> NotificationData:
 	_data[DATA_KEY_INTERVAL] = a_interval
+	return self
+
+
+func set_badge_count(a_count: int) -> NotificationData:
+	_data[DATA_KEY_BADGE_COUNT] = a_count
 	return self
 
 
