@@ -13,6 +13,7 @@ const DATA_KEY_SMALL_ICON_NAME = "small_icon_name"
 const DATA_KEY_DELAY = "delay"
 const DATA_KEY_DEEPLINK = "deeplink"
 const DATA_KEY_INTERVAL = "interval"
+const DATA_KEY_BADGE_NUMBER = "badge_number"
 const OPTION_KEY_RESTART_APP = "restart_app"
 
 var _data: Dictionary
@@ -59,6 +60,11 @@ func set_deeplink(a_deeplink: String) -> NotificationData:
 
 func set_interval(a_interval: int) -> NotificationData:
 	_data[DATA_KEY_INTERVAL] = a_interval
+	return self
+
+
+func set_badge_number(a_number: int) -> NotificationData:
+	_data[DATA_KEY_BADGE_NUMBER] = a_number
 	return self
 
 
