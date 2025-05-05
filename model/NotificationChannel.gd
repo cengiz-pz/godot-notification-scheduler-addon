@@ -47,7 +47,7 @@ func set_importance(a_importance: Importance) -> NotificationChannel:
 
 
 func set_badge_enabled(a_is_enabled: bool) -> NotificationChannel:
-	_data[DATA_KEY_IMPORTANCE] = a_is_enabled
+	_data[DATA_KEY_BADGE_ENABLED] = a_is_enabled
 	return self
 
 
