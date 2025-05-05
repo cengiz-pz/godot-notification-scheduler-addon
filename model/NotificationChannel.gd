@@ -17,6 +17,7 @@ const DATA_KEY_ID = "id"
 const DATA_KEY_NAME = "name"
 const DATA_KEY_DESCRIPTION = "description"
 const DATA_KEY_IMPORTANCE = "importance"
+const DATA_KEY_BADGE_ENABLED = "badge_enabled"
 
 var _data: Dictionary
 
@@ -42,6 +43,11 @@ func set_description(a_description: String) -> NotificationChannel:
 
 func set_importance(a_importance: Importance) -> NotificationChannel:
 	_data[DATA_KEY_IMPORTANCE] = a_importance
+	return self
+
+
+func set_badge_enabled(a_is_enabled: bool) -> NotificationChannel:
+	_data[DATA_KEY_IMPORTANCE] = a_is_enabled
 	return self
 
 
