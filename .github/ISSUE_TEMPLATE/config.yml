@@ -2,10 +2,10 @@
 blank_issues_enabled: false
 
 contact_links:
-  - name: Android Issues
-    url: https://github.com/cengiz-pz/godot-android-notification-scheduler-plugin/issues
-    about: Please report Android-related issues via the Android plugin repository.
+  - name: Bugs
+    url: https://github.com/godot-sdk-integrations/godot-notification-scheduler/issues
+    about: Please report bugs at the new repository.
 
-  - name: iOS Issues
-    url: https://github.com/cengiz-pz/godot-ios-notification-scheduler-plugin/issues
-    about: Please report iOS-related issues via the iOS plugin repository.
+  - name: Feature Requests
+    url: https://github.com/godot-sdk-integrations/godot-notification-scheduler/issues
+    about: Please submit feature requests at the new repository.
