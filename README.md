@@ -1,3 +1,4 @@
+## Moved to: https://github.com/godot-mobile-plugins/godot-notification-scheduler
 
 ---
 # ![](icon.png?raw=true) Godot Notification Scheduler Addon Interface
